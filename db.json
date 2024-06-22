@@ -1,0 +1,308 @@
+[
+  {
+    "ref": "ans_6d613f9f-3826-4c3f-b31d-2c2c061d1429",
+    "keyword": "key_1f078c9d-41a9-4e33-b484-2a809926ae96",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "0c566d0ece89e3856e5e4cf71d706300",
+    "from": "+5215613641423"
+  },
+  {
+    "ref": "3727216b-e4e2-4a35-8b64-43255bc01761",
+    "keyword": null,
+    "answer": "¡Hola! Soy Caroline, un consultor experto en emprendimiento, tecnologías y negocios. ¿En qué puedo ayudarte hoy?",
+    "options": {
+      "media": "https://babelink.com.mx/images/Caroline.jpg",
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "+5215613641423",
+    "refSerialize": "28d6c5831c328bb0f38a26dc88b3497c"
+  },
+  {
+    "ref": "363574d3-4412-444d-8d22-951b7175bec7",
+    "keyword": "0c566d0ece89e3856e5e4cf71d706300",
+    "answer": "Podrías recomendarme alguna app que funcione con inteligencia artificial y me genere imágenes realistas de lo que podría hacer mi negocio por favor",
+    "options": {},
+    "from": "+5215613641423",
+    "refSerialize": "62883fdf89428374a03820f57453302b"
+  },
+  {
+    "ref": "ans_6d613f9f-3826-4c3f-b31d-2c2c061d1429",
+    "keyword": "key_1f078c9d-41a9-4e33-b484-2a809926ae96",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "0c566d0ece89e3856e5e4cf71d706300",
+    "from": "+5215613641423"
+  },
+  {
+    "ref": "cd2257d9-ee58-4703-9655-0b30757294a0",
+    "keyword": null,
+    "answer": "Te recomendaría utilizar una aplicación como Chatbot Caroline, que puede ayudarte a automatizar tus ventas. Esta app es gratuita y cobra solo por las ventas generadas, con una comisión que varía del 5% al 10% dependiendo de diferentes factores como el ticket promedio de ventas, cantidad de ventas al mes, cantidad de clientes, y el tipo de industria en la que te encuentres .",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "+5215613641423",
+    "refSerialize": "baa025a6e434dcbf1004216cf7ce9e3b"
+  },
+  {
+    "ref": "eba0d68e-93fd-4ffe-b48a-f420283916aa",
+    "keyword": "0c566d0ece89e3856e5e4cf71d706300",
+    "answer": "¿Qué tipo de ventas realizas?",
+    "options": {},
+    "from": "+5215613641423",
+    "refSerialize": "4d3ab3e1dfbfe154f6ce5189cd374554"
+  },
+  {
+    "ref": "ans_6d613f9f-3826-4c3f-b31d-2c2c061d1429",
+    "keyword": "key_1f078c9d-41a9-4e33-b484-2a809926ae96",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "0c566d0ece89e3856e5e4cf71d706300",
+    "from": "+5215613641423"
+  },
+  {
+    "ref": "6a2903a7-a142-424e-9395-d666d1509222",
+    "keyword": null,
+    "answer": "Principalmente, Chatbot Caroline se enfoca en ventas de productos y servicios en línea. Puede ayudarte a automatizar el proceso de ventas, responder preguntas frecuentes de los clientes, ofrecer recomendaciones personalizadas y cerrar ventas de manera eficiente a través de la inteligencia artificial y el procesamiento del lenguaje natural.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "+5215613641423",
+    "refSerialize": "f8693a3c7af45cd662f4b26c812e2075"
+  },
+  {
+    "ref": "d23dcbad-db91-4220-9667-841b7b0f08d2",
+    "keyword": "0c566d0ece89e3856e5e4cf71d706300",
+    "answer": "¿Tú realizarías todo el proceso de ventas con mis clientes?",
+    "options": {},
+    "from": "+5215613641423",
+    "refSerialize": "d4eb1966350b9ebfd79588c076f4f60f"
+  },
+  {
+    "ref": "ans_6d613f9f-3826-4c3f-b31d-2c2c061d1429",
+    "keyword": "key_1f078c9d-41a9-4e33-b484-2a809926ae96",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "0c566d0ece89e3856e5e4cf71d706300",
+    "from": "+5215613641423"
+  },
+  {
+    "ref": "188dc4d9-917c-4ec0-a399-fdcaac6b0009",
+    "keyword": null,
+    "answer": "Chatbot Caroline puede asistir en gran parte del proceso de ventas, desde la interacción inicial con los clientes, la respuesta a consultas comunes, la recomendación de productos o servicios, hasta el cierre de la venta. Sin embargo, es importante recordar que la interacción humana también es crucial en ciertos puntos del proceso de ventas para brindar un servicio personalizado y resolver consultas más complejas.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "+5215613641423",
+    "refSerialize": "6e4735b31001f7fafe93d1b63a4fc550"
+  },
+  {
+    "ref": "a4734822-82ab-4507-b197-39e63dcecfc9",
+    "keyword": "0c566d0ece89e3856e5e4cf71d706300",
+    "answer": "¿Estas capacitada para responder de lunes a domingo?",
+    "options": {},
+    "from": "+5215613641423",
+    "refSerialize": "18cbf034c094f87b2ea9fbd351a616be"
+  },
+  {
+    "ref": "ans_6d613f9f-3826-4c3f-b31d-2c2c061d1429",
+    "keyword": "key_1f078c9d-41a9-4e33-b484-2a809926ae96",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "0c566d0ece89e3856e5e4cf71d706300",
+    "from": "+5215613641423"
+  },
+  {
+    "ref": "7defb160-c000-4c4b-8674-32979feec675",
+    "keyword": null,
+    "answer": "Sí, Chatbot Caroline está diseñada para funcionar las 24 horas del día, los 7 días de la semana, lo que permite atender a tus clientes en cualquier momento, incluso los fines de semana. Esto ayuda a mejorar la experiencia del cliente al brindar respuestas rápidas y estar disponible en todo momento.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "+5215613641423",
+    "refSerialize": "b7e1a2dfa571e0080fb305768cb2ef8c"
+  },
+  {
+    "ref": "3accdfc6-a620-46d2-8e41-4ef339bd8a47",
+    "keyword": "0c566d0ece89e3856e5e4cf71d706300",
+    "answer": "¿Podrías darle o recomendarle algunos productos que venda incluyendo sus precios?",
+    "options": {},
+    "from": "+5215613641423",
+    "refSerialize": "deaada7d1dff38ab20c35b3b99ff8451"
+  },
+  {
+    "ref": "ans_6d613f9f-3826-4c3f-b31d-2c2c061d1429",
+    "keyword": "key_1f078c9d-41a9-4e33-b484-2a809926ae96",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "0c566d0ece89e3856e5e4cf71d706300",
+    "from": "+5215613641423"
+  },
+  {
+    "ref": "62e050ee-2d0e-431f-9848-e8fdbedce470",
+    "keyword": null,
+    "answer": "Para recomendar productos específicos con precios, necesitaría más información sobre tu negocio y los productos que ofreces. Si puedes proporcionarme detalles sobre tu industria o sector, así como los tipos de productos o servicios que vendes, estaré encantada de ayudarte a sugerir algunos ejemplos con precios estimados.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "+5215613641423",
+    "refSerialize": "a896a48ce3de44389886f947aad35234"
+  },
+  {
+    "ref": "9d4b527f-8a3d-4897-beb1-ab405b6366fd",
+    "keyword": "0c566d0ece89e3856e5e4cf71d706300",
+    "answer": "¿Qué información necesitarías para comenzar a trabajar para mí?",
+    "options": {},
+    "from": "+5215613641423",
+    "refSerialize": "4e056558cd5f3caa53a1ab7a211f4276"
+  },
+  {
+    "ref": "ans_6d613f9f-3826-4c3f-b31d-2c2c061d1429",
+    "keyword": "key_1f078c9d-41a9-4e33-b484-2a809926ae96",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "0c566d0ece89e3856e5e4cf71d706300",
+    "from": "+5215613641423"
+  },
+  {
+    "ref": "deb8e638-a583-4778-b00a-c73719da5f3c",
+    "keyword": null,
+    "answer": "Para comenzar a trabajar contigo, necesitaría información clave sobre tu negocio, como:",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "+5215613641423",
+    "refSerialize": "e2a0a3caf368c354352ea11fa173f4dd"
+  },
+  {
+    "ref": "29e43b7f-417e-4e8c-bc18-0b42c8bfca4f",
+    "keyword": null,
+    "answer": "1. Descripción detallada de tu negocio y los productos o servicios que ofreces.\n2. Público objetivo o mercado al que te diriges.\n3. Objetivos comerciales y de ventas que deseas alcanzar.\n4. Información sobre tu competencia y tu posición en el mercado.\n5. Cualquier material de marketing existente que puedas proporcionar.\n6. Acceso a plataformas digitales relevantes (sitio web, redes sociales, etc.).\n7. Cualquier requisito específico o preferencia que tengas para la implementación de Chatbot Caroline.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "+5215613641423",
+    "refSerialize": "594bc979fb505362f81c056dccc92002"
+  },
+  {
+    "ref": "71078816-59f2-46b5-b479-3ccd338e9e0e",
+    "keyword": null,
+    "answer": "Con esta información, podré ayudarte a implementar Chatbot Caroline de manera efectiva para impulsar tus ventas y mejorar la experiencia del cliente.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "+5215613641423",
+    "refSerialize": "405730f2f96f504d4af23852faa909d5"
+  },
+  {
+    "ref": "e4d4799e-cab6-4aa3-9519-a847216c3ad2",
+    "keyword": "0c566d0ece89e3856e5e4cf71d706300",
+    "answer": "Gracias Caroline, te busco más tarde",
+    "options": {},
+    "from": "+5215613641423",
+    "refSerialize": "6aa079ef326ab9ac1278284ae1c093af"
+  },
+  {
+    "ref": "ans_6d613f9f-3826-4c3f-b31d-2c2c061d1429",
+    "keyword": "key_1f078c9d-41a9-4e33-b484-2a809926ae96",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "0c566d0ece89e3856e5e4cf71d706300",
+    "from": "+5215613641423"
+  },
+  {
+    "ref": "da9136f5-5b22-4d10-ba67-aa999b8ff350",
+    "keyword": null,
+    "answer": "¡De nada! Estaré aquí cuando me necesites. ¡Que tengas un excelente día!",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "+5215613641423",
+    "refSerialize": "27511edbb2f79aed289f675b4a210455"
+  }
+]
