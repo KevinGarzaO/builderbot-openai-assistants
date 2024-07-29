@@ -30,8 +30,9 @@ const flowConfirm = addKeyword(EVENTS.ACTION).addAction(async (_, { flowDynamic 
         if (!ctx.body.includes('@')) {
             return fallBack(`Debes ingresar un mail correcto`)
         }
-
-        const formattedDateFrom = format(state.get('desiredHora'), 'yyyy/MM/dd HH:mm:ss');
+       
+       
+        const formattedDateFrom = format(state.get('desiredDate'), 'yyyy/MM/dd HH:mm:ss');
         console.log("formattedDateFrom", formattedDateFrom)
 
         const desiredDate = parse(formattedDateFrom, 'yyyy/MM/dd HH:mm:ss', new Date());

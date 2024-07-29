@@ -1,15 +1,15 @@
 [
   {
-    "ref": "b67b9146-bd1a-4140-b0f9-d696630167a7",
-    "keyword": "ceb6b328d7e07f8f349499c774efaf94",
-    "answer": "Hola quiero agendar una cita",
+    "ref": "beb0cbd4-1e70-46dc-b659-d29b429447de",
+    "keyword": "e6c3ab861202d1fff5315067f295a94b",
+    "answer": "Hola me gustaria agendar una cita para este viernes a las 2 de la tarde",
     "options": {},
     "from": "+5218126984119",
-    "refSerialize": "d3d3a24e122d6532d7c33607bba82f50"
+    "refSerialize": "e6c3ab861202d1fff5315067f295a94b"
   },
   {
-    "ref": "ans_da92cd55-6a66-4b2f-9fdc-52172b749e3e",
-    "keyword": "key_b6a49a4f-ecfa-4fab-907e-827397f50fda",
+    "ref": "ans_31683221-66b7-4687-96e8-daaa6ee1a0e5",
+    "keyword": "key_6a87fc10-c357-4472-b324-19ac4a00938c",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -19,12 +19,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "9c65aa29c68c98b4bc886f0fce89b79c",
+    "refSerialize": "53216e64cbf50649c4cc2aaa483d64f1",
     "from": "+5218126984119"
   },
   {
-    "ref": "ans_0c8f1422-0de1-405d-8f9f-36d95d78e757",
-    "keyword": "ans_da92cd55-6a66-4b2f-9fdc-52172b749e3e",
+    "ref": "ans_615bb05c-20e0-481b-bec1-d57f2d277eb7",
+    "keyword": "ans_31683221-66b7-4687-96e8-daaa6ee1a0e5",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -34,12 +34,12 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "5a15f215c5ac2574bcc462abae333bfc",
+    "refSerialize": "a280de792630ea2591e654e63e789e2c",
     "from": "+5218126984119"
   },
   {
-    "ref": "ans_14e1724c-9fdd-434f-bbe0-7789646c1865",
-    "keyword": "key_da40c408-c7b7-44df-9998-2d9e07aca485",
+    "ref": "ans_fef14f4e-fb55-4093-a511-899badc8b9f2",
+    "keyword": "key_1345bdc5-438d-4c34-b24a-fe44bfe473d9",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -49,11 +49,26 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "8b3199257a09958c3f3fdbd8ac3c83d1",
+    "refSerialize": "b5e50976ea91f8089665a723c1ea7543",
     "from": "+5218126984119"
   },
   {
-    "ref": "ddbe6e02-81b6-420c-9342-79483f6f7bca",
+    "ref": "ans_59b2bc0a-257e-4b9d-9800-42d2ee8c9db7",
+    "keyword": "ans_fef14f4e-fb55-4093-a511-899badc8b9f2",
+    "answer": "__capture_only_intended__",
+    "options": {
+      "buttons": [],
+      "capture": true,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "4e2539e7a3353410e98eeda8c4343c2f",
+    "from": "+5218126984119"
+  },
+  {
+    "ref": "3af9aad4-5f51-4758-bb1c-3c657b469f6d",
     "keyword": null,
     "answer": "Dame un momento para consultar la agenda...",
     "options": {
@@ -64,5 +79,44 @@
     },
     "from": "+5218126984119",
     "refSerialize": "2ec74acdd52a6e2d5a35faccb99d9598"
+  },
+  {
+    "ref": "4e0e28c6-20ae-42e9-9d0f-8226de028f97",
+    "keyword": null,
+    "answer": "¡Perfecto! Si tenemos fecha para ese día",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 178
+    },
+    "from": "+5218126984119",
+    "refSerialize": "4b6c480c95ca6d61b5172ca332db625f"
+  },
+  {
+    "ref": "358a1094-2784-4f96-ad05-6f21a1893349",
+    "keyword": null,
+    "answer": "¿Confirmo tu reserva? *si*",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 227
+    },
+    "from": "+5218126984119",
+    "refSerialize": "1ab171e8b96b85b44bf47bdb56b74800"
+  },
+  {
+    "ref": "2e66cf1e-936e-4ff1-a0c1-edc1d31fa0b6",
+    "keyword": null,
+    "answer": "¡Perfecto! Tenemos disponibilidad de 11:30 AM a 12:30 PM el día 28/06/2024. ¿Confirmo tu reserva? *si*",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 158
+    },
+    "from": "+5218126984119",
+    "refSerialize": "b18a3885d712954c98a9d85ce0218ab8"
   }
 ]
