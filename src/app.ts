@@ -16,37 +16,15 @@ import { decryptData } from "utils/hash";
 import flows from "flows";
 
 
-const PORT = process.env?.PORT ?? 3008;
-const ASSISTANT_ID = process.env?.ASSISTANT_ID ?? "";
-
-
-const locationFlow =  addKeyword(EVENTS.LOCATION)
-.addAnswer("He recibido tu ubicación muchas gracias", null, async (ctx) => {
-  const userLatitude = ctx.Latitude;
-  const userLongitude = ctx.Longitude;
-})
-
-const documentFlow = addKeyword(EVENTS.DOCUMENT)
-.addAnswer("Dame un momento para ver tu documento", null, async (ctx, { provider }) => {
-  const localPath = await provider.saveFile(ctx, {path:'tmp'})
-})
-
-const pagoFlow = addKeyword('pagar')
-.addAnswer('dame un momento para generarte un link de pago...')
-.addAnswer('¿Cual es tu email?',{capture:true}, async (ctx, {fallBack, flowDynamic}) => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const email = ctx.body;
-    const phone = ctx.from
-
-    if(!emailRegex.test(email)){
-        return fallBack(`Debe ser un mail correcto! esto *${email}* NO es un mail`)
-    }
-
-    const link = await handlerStripe(phone, email)
-    console.log(link)
-    await flowDynamic(`Aqui tienes el link: ${link.url}`)
-})
-
+const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
+    .addAction(async (ctx, { flowDynamic,  state, provider }) => {
+        await typing(ctx, provider)
+        const response = await toAsk(ASSISTANT_ID, ctx.body, state)
+       const chunks = response.split(/\n\n+/);
+for (const chunk of chunks) {
+    await flowDynamic([{ body: chunk.trim() }]);
+}
+    })
 
 const main = async () => {
   const adapterProvider = createProvider(Provider, {
@@ -55,54 +33,22 @@ const main = async () => {
     vendorNumber: process.env.ACC_VENDOR, //+14155238886
   });
 
-  const adapterDB = new Database({ filename: 'db.json' });
+    const { httpServer, handleCtx } = await createBot({
+        flow: adapterFlow,
+        provider: adapterProvider,
+        database: adapterDB,
+    })
 
-  const { httpServer, handleCtx } = await createBot({
-    flow: flows,
-    provider: adapterProvider,
-    database: adapterDB,
-  });
+    adapterProvider.server.post(
+        '/v1/messages',
+        handleCtx(async (bot, req, res) => {
+            const { number, message, urlMedia } = req.body
+            await bot.sendMessage(number, message, { media: urlMedia ?? null })
+            return res.end('sended')
+        })
+    )
 
-  httpInject(adapterProvider.server);
-  httpServer(+PORT);
-
-  adapterProvider.server.post('/v1/messages', handleCtx(async (bot, req, res) => {
-    const { number, message } = req.body
-    await bot.sendMessage(number, message, {})
-    return res.end('send')
-}))
-
-
-const COURSE_ID = process.env.COURSE_ID ?? "";
-
-adapterProvider.server.get('/api/callback', handleCtx(async (bot, req, res)  => {
-  const payload = req.query.p;
-  const adapterDB = req.db;
-  const adapterProvider = req.ws;
-
-  if (!payload) {
-    res.send({ data: "Ups algo paso con pago intenta de nuevo!" });
-    return;
-  }
-
-  const data = decryptData(payload);
-  const [phone, status, email] = data.split("__") ?? [
-    undefined,
-    undefined,
-    undefined,
-  ];
-
-  if (status === "fail") {
-    await bot.sendMessage(phone, "Ups! algo paso con tu pago!", {})
-  }else if(status === "success"){
-    await bot.sendMessage(phone, "Gracias por tu pago lo hemos recibido", {})
-  }
-
-  return res.end(`Email: ${email}, Estatus: ${status}`)
-}));
-
-};
-
-main();
-
+    httpInject(adapterProvider.server)
+    httpServer(+PORT)
+}
 
