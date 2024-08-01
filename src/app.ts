@@ -10,7 +10,7 @@ const PORT = process.env?.PORT ?? 3008
 const ASSISTANT_ID = process.env?.ASSISTANT_ID ?? ''
 
 const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
-    .addAction(async (ctx, { flowDynamic, state, provider }) => {
+    .addAction(async (ctx, { flowDynamic,  state, provider }) => {
         await typing(ctx, provider)
         const response = await toAsk(ASSISTANT_ID, ctx.body, state)
        const chunks = response.split(/\n\n+/);
@@ -28,11 +28,20 @@ const main = async () => {
     })
     const adapterDB = new Database()
 
-    const { httpServer } = await createBot({
+    const { httpServer, handleCtx } = await createBot({
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
     })
+
+    adapterProvider.server.post(
+        '/v1/messages',
+        handleCtx(async (bot, req, res) => {
+            const { number, message, urlMedia } = req.body
+            await bot.sendMessage(number, message, { media: urlMedia ?? null })
+            return res.end('sended')
+        })
+    )
 
     httpInject(adapterProvider.server)
     httpServer(+PORT)
