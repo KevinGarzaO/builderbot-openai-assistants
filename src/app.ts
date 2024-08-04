@@ -13,6 +13,7 @@ const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
     .addAction(async (ctx, { flowDynamic,  state, provider }) => {
         await typing(ctx, provider)
         const response = await toAsk(ASSISTANT_ID, ctx.body, state)
+        console.log(`De: ${ctx.from}, mensaje: ${ctx.body}`)
        const chunks = response.split(/\n\n+/);
 for (const chunk of chunks) {
     await flowDynamic([{ body: chunk.trim() }]);
