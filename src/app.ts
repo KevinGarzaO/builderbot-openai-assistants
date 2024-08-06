@@ -20,24 +20,18 @@ const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
         const response = await toAsk(ASSISTANT_ID, ctx.body, state)
         chunks = response.split(/\n\n+/);
 
-        console.log("message")
-        console.log(idAssigned)
-        console.log(ctx.from.includes(phone))
-
-        if(idAssigned === null && ctx.from.includes(phone)){
-            for (const chunk of chunks) {
-                await flowDynamic([{ body: chunk.trim() }]);
-                await handlerMessage({
-                    phone: ctx.from,
-                    name: ctx.name,
-                    message: chunk.trim(),
-                    attachment: [],
-                    mode: 'outgoing'
-                }, chatwoot)
+        if((idAssigned === null || idAssigned === undefined)){
+                for (const chunk of chunks) {
+                    await flowDynamic([{ body: chunk.trim() }]);
+                    await handlerMessage({
+                        phone: ctx.from,
+                        name: ctx.name,
+                        message: chunk.trim(),
+                        attachment: [],
+                        mode: 'outgoing'
+                    }, chatwoot)
+                }
             }
-        }
-
-
     })
 
 
