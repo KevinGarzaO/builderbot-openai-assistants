@@ -10,13 +10,20 @@ import { handlerMessage } from "services/class/botWrapper"
 
 const PORT = process.env?.PORT ?? 3008
 const ASSISTANT_ID = process.env?.ASSISTANT_ID ?? ''
+let chunks: string[]
+let idAssigned: null
+let phone: null
 
 const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
     .addAction(async (ctx, { flowDynamic,  state, provider }) => {
         await typing(ctx, provider)
+       console.log(ctx)
         const response = await toAsk(ASSISTANT_ID, ctx.body, state)
-        const chunks = response.split(/\n\n+/);
-         for (const chunk of chunks) {
+        chunks = response.split(/\n\n+/);
+
+        if(phone !== undefined){
+            if((idAssigned === null || idAssigned === undefined) && ctx.from.includes(phone)){
+                for (const chunk of chunks) {
                     await flowDynamic([{ body: chunk.trim() }]);
                     await handlerMessage({
                         phone: ctx.from,
@@ -26,6 +33,22 @@ const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
                         mode: 'outgoing'
                     }, chatwoot)
                 }
+            }
+        }else if(phone === undefined){
+            for (const chunk of chunks) {
+                await flowDynamic([{ body: chunk.trim() }]);
+                await handlerMessage({
+                    phone: ctx.from,
+                    name: ctx.name,
+                    message: chunk.trim(),
+                    attachment: [],
+                    mode: 'outgoing'
+                }, chatwoot)
+            }
+        }
+       
+
+
     })
 
 
@@ -112,8 +135,8 @@ const main = async () => {
             if (body?.event === 'conversation_updated' && mapperAttributes.includes('assignee_id')) {
                 const _phone = body?.meta?.sender?.phone_number.replace('+', '')
                 
-                const  phone = _phone; 
-                const idAssigned = body?.changed_attributes[0]?.assignee_id?.current_value ?? null
+                phone = _phone; 
+                idAssigned = body?.changed_attributes[0]?.assignee_id?.current_value ?? null
                
                 
                 if(idAssigned){
