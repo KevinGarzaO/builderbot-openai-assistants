@@ -141,6 +141,11 @@ const main = async () => {
              */
             if (body?.event === 'conversation_updated' && mapperAttributes.includes('assignee_id')) {
                 const _phone = body?.meta?.sender?.phone_number.replace('+', '')
+                
+                console.log("Entre a ver los conversation_update")
+                console.log(body?.event)
+                console.log(mapperAttributes)
+                
                 phone = _phone; 
                 idAssigned = body?.changed_attributes[0]?.assignee_id?.current_value ?? null
                
