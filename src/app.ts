@@ -20,7 +20,12 @@ const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
         const response = await toAsk(ASSISTANT_ID, ctx.body, state)
         chunks = response.split(/\n\n+/);
 
-        if((idAssigned === null || idAssigned === undefined)){
+        console.log("message")
+        console.log(idAssigned)
+        console.log(ctx.from.includes(phone))
+
+        if(phone !== null || phone !== undefined){
+            if((idAssigned === null || idAssigned === undefined) && ctx.from.includes(phone)){
                 for (const chunk of chunks) {
                     await flowDynamic([{ body: chunk.trim() }]);
                     await handlerMessage({
@@ -32,6 +37,21 @@ const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
                     }, chatwoot)
                 }
             }
+        }else{
+            for (const chunk of chunks) {
+                await flowDynamic([{ body: chunk.trim() }]);
+                await handlerMessage({
+                    phone: ctx.from,
+                    name: ctx.name,
+                    message: chunk.trim(),
+                    attachment: [],
+                    mode: 'outgoing'
+                }, chatwoot)
+            }
+        }
+       
+
+
     })
 
 
