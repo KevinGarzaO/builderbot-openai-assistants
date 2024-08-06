@@ -25,7 +25,7 @@ const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
         console.log(phone)
         console.log(ctx.from.includes(phone))
 
-        if(phone !== null || phone !== undefined){
+        if(phone !== undefined){
             if((idAssigned === null || idAssigned === undefined) && ctx.from.includes(phone)){
                 for (const chunk of chunks) {
                     await flowDynamic([{ body: chunk.trim() }]);
@@ -38,7 +38,7 @@ const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
                     }, chatwoot)
                 }
             }
-        }else{
+        }else if(phone === undefined){
             for (const chunk of chunks) {
                 await flowDynamic([{ body: chunk.trim() }]);
                 await handlerMessage({
