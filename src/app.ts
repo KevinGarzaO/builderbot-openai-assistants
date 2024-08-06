@@ -130,7 +130,7 @@ const main = async () => {
             const body = req.body;
         const attachments = body?.attachments
         try {
-
+            console.log("API /v1/chatwoot")
             const mapperAttributes = body?.changed_attributes?.map((a) => Object.keys(a)).flat(2)
 
             /**
@@ -151,9 +151,9 @@ const main = async () => {
                
                 
                 if(idAssigned){
-                    bot.dynamicBlacklist.add(phone)
+                    bots.blacklist.add(phone)
                 }else{
-                    bot.dynamicBlacklist.remove(phone)
+                    bots.blacklist.remove(phone)
                 }
                 res.end('ok')
                 return
