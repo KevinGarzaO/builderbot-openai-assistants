@@ -7,8 +7,6 @@ import { toAsk, httpInject } from "@builderbot-plugins/openai-assistants"
 import { typing } from "./utils/presence"
 import ChatwootClass from "services/class/chatwoot"
 import { handlerMessage } from "services/class/botWrapper"
-import { mimeType } from "mime-types"
-import { isNull } from "util"
 
 const PORT = process.env?.PORT ?? 3008
 const ASSISTANT_ID = process.env?.ASSISTANT_ID ?? ''
