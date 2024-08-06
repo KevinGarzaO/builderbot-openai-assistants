@@ -20,9 +20,11 @@ const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
         const response = await toAsk(ASSISTANT_ID, ctx.body, state)
         chunks = response.split(/\n\n+/);
 
-        console.log("message")
+        console.log("idAssigned: ")
         console.log(idAssigned)
+        console.log("phone: ")
         console.log(phone)
+        console.log("Bolean: ")
         console.log(ctx.from.includes(phone))
 
         if(phone !== undefined){
