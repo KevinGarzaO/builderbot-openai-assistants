@@ -10,26 +10,13 @@ import { handlerMessage } from "services/class/botWrapper"
 
 const PORT = process.env?.PORT ?? 3008
 const ASSISTANT_ID = process.env?.ASSISTANT_ID ?? ''
-let chunks: string[]
-let idAssigned: null
-let phone: null
 
 const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
     .addAction(async (ctx, { flowDynamic,  state, provider }) => {
         await typing(ctx, provider)
         const response = await toAsk(ASSISTANT_ID, ctx.body, state)
-        chunks = response.split(/\n\n+/);
-
-        console.log("idAssigned: ")
-        console.log(idAssigned)
-        console.log("phone: ")
-        console.log(phone)
-        console.log("Bolean: ")
-        console.log(ctx.from.includes(phone))
-
-        if(phone !== undefined){
-            if((idAssigned === null || idAssigned === undefined) && ctx.from.includes(phone)){
-                for (const chunk of chunks) {
+        const chunks = response.split(/\n\n+/);
+         for (const chunk of chunks) {
                     await flowDynamic([{ body: chunk.trim() }]);
                     await handlerMessage({
                         phone: ctx.from,
@@ -39,22 +26,6 @@ const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
                         mode: 'outgoing'
                     }, chatwoot)
                 }
-            }
-        }else if(phone === undefined){
-            for (const chunk of chunks) {
-                await flowDynamic([{ body: chunk.trim() }]);
-                await handlerMessage({
-                    phone: ctx.from,
-                    name: ctx.name,
-                    message: chunk.trim(),
-                    attachment: [],
-                    mode: 'outgoing'
-                }, chatwoot)
-            }
-        }
-       
-
-
     })
 
 
@@ -130,7 +101,6 @@ const main = async () => {
             const body = req.body;
         const attachments = body?.attachments
         try {
-            console.log("API /v1/chatwoot")
             const mapperAttributes = body?.changed_attributes?.map((a) => Object.keys(a)).flat(2)
 
             /**
@@ -142,12 +112,8 @@ const main = async () => {
             if (body?.event === 'conversation_updated' && mapperAttributes.includes('assignee_id')) {
                 const _phone = body?.meta?.sender?.phone_number.replace('+', '')
                 
-                console.log("Entre a ver los conversation_update")
-                console.log(body?.event)
-                console.log(mapperAttributes)
-                
-                phone = _phone; 
-                idAssigned = body?.changed_attributes[0]?.assignee_id?.current_value ?? null
+                const  phone = _phone; 
+                const idAssigned = body?.changed_attributes[0]?.assignee_id?.current_value ?? null
                
                 
                 if(idAssigned){
