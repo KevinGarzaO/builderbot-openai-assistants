@@ -6,7 +6,7 @@
 const handlerMessage = async (dataIn = {phone:'', name:'', message: '', mode:'', attachment:[]}, chatwoot) => {
     console.log("DataIn")
     console.log(dataIn)
-    const inbox = await chatwoot.findOrCreateInbox({ name: 'BOTWS' })
+    const inbox = await chatwoot.findOrCreateInbox({ name: 'Babelink IA' })
     const contact = await chatwoot.findOrCreateContact({ from: dataIn.phone, name: dataIn.name})
     const conversation = await chatwoot.findOrCreateConversation({
         inbox_id: inbox.id,
