@@ -22,6 +22,7 @@ const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
 
         console.log("message")
         console.log(idAssigned)
+        console.log(phone)
         console.log(ctx.from.includes(phone))
 
         if(phone !== null || phone !== undefined){
