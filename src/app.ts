@@ -39,6 +39,17 @@ const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
                         mode: 'outgoing'
                     }, chatwoot)
                 }
+            }else{
+                for (const chunk of chunks) {
+                    await flowDynamic([{ body: chunk.trim() }]);
+                    await handlerMessage({
+                        phone: ctx.from,
+                        name: ctx.name,
+                        message: chunk.trim(),
+                        attachment: [],
+                        mode: 'outgoing'
+                    }, chatwoot)
+                }
             }
         }else if(phone === undefined){
             for (const chunk of chunks) {
