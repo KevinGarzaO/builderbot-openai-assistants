@@ -16,18 +16,11 @@ let phone: null
 
 const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
     .addAction(async (ctx, { flowDynamic,  state, provider }) => {
-        await typing(ctx, provider)
-        const response = await toAsk(ASSISTANT_ID, ctx.body, state)
-        chunks = response.split(/\n\n+/);
-
-        console.log("idAssigned: ")
-        console.log(idAssigned)
-        console.log("phone: ")
-        console.log(phone)
-        console.log("Bolean: ")
-        console.log(ctx.from.includes(phone))
-
         if(phone !== undefined){
+            await typing(ctx, provider)
+            const response = await toAsk(ASSISTANT_ID, ctx.body, state)
+            chunks = response.split(/\n\n+/);
+
             if((idAssigned === null || idAssigned === undefined) && ctx.from.includes(phone)){
                 for (const chunk of chunks) {
                     await flowDynamic([{ body: chunk.trim() }]);
@@ -52,6 +45,10 @@ const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
                 }
             }
         }else if(phone === undefined){
+            await typing(ctx, provider)
+            const response = await toAsk(ASSISTANT_ID, ctx.body, state)
+            chunks = response.split(/\n\n+/);
+            
             for (const chunk of chunks) {
                 await flowDynamic([{ body: chunk.trim() }]);
                 await handlerMessage({
@@ -141,7 +138,6 @@ const main = async () => {
             const body = req.body;
         const attachments = body?.attachments
         try {
-            console.log("API /v1/chatwoot")
             const mapperAttributes = body?.changed_attributes?.map((a) => Object.keys(a)).flat(2)
 
             /**
@@ -152,11 +148,6 @@ const main = async () => {
              */
             if (body?.event === 'conversation_updated' && mapperAttributes.includes('assignee_id')) {
                 const _phone = body?.meta?.sender?.phone_number.replace('+', '')
-                
-                console.log("Entre a ver los conversation_update")
-                console.log(body?.event)
-                console.log(mapperAttributes)
-                
                 phone = _phone; 
                 idAssigned = body?.changed_attributes[0]?.assignee_id?.current_value ?? null
                
