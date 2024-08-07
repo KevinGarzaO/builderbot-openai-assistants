@@ -39,7 +39,7 @@ const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
                         mode: 'outgoing'
                     }, chatwoot)
                 }
-            }else{
+            }else if((idAssigned !== null || idAssigned !== undefined) && !ctx.from.includes(phone)){
                 for (const chunk of chunks) {
                     await flowDynamic([{ body: chunk.trim() }]);
                     await handlerMessage({
