@@ -126,7 +126,7 @@ const main = async () => {
 
     adapterProvider.server.post(
         '/v1/messages',
-        handleCtx(async (bot, req, res) => {
+        handleCtx(async (bots, req, res) => {
             const { number, message, urlMedia, name } = req.body
             
             await handlerMessage({
@@ -137,7 +137,7 @@ const main = async () => {
                 mode: 'outgoing'
             }, chatwoot)
 
-            await bot.sendMessage(number, message, { media: urlMedia ?? null })
+            await bots.sendMessage(number, message, { media: urlMedia ?? null })
             return res.end('sended')
         })
     )
