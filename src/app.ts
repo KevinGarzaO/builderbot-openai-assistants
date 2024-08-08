@@ -48,7 +48,7 @@ const welcomeFlow = addKeyword<Provider, Database>(EVENTS.WELCOME)
             await typing(ctx, provider)
             const response = await toAsk(ASSISTANT_ID, ctx.body, state)
             chunks = response.split(/\n\n+/);
-            
+
             for (const chunk of chunks) {
                 await flowDynamic([{ body: chunk.trim() }]);
                 await handlerMessage({
@@ -127,7 +127,16 @@ const main = async () => {
     adapterProvider.server.post(
         '/v1/messages',
         handleCtx(async (bot, req, res) => {
-            const { number, message, urlMedia } = req.body
+            const { number, message, urlMedia, name } = req.body
+            
+            await handlerMessage({
+                phone: number,
+                name: name,
+                message: message,
+                attachment: [],
+                mode: 'outgoing'
+            }, chatwoot)
+
             await bot.sendMessage(number, message, { media: urlMedia ?? null })
             return res.end('sended')
         })
