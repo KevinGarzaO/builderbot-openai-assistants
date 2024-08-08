@@ -127,11 +127,11 @@ const main = async () => {
     adapterProvider.server.post(
         '/v1/messages',
         handleCtx(async (bots, req, res) => {
-            const { number, message, urlMedia, name } = req.body
+            const { number, message, urlMedia } = req.body
             
             await handlerMessage({
                 phone: number,
-                name: name,
+                name: "",
                 message: message,
                 attachment: [],
                 mode: 'outgoing'
